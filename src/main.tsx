@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Routes>
         <Route path='/fetch-api' element={ <FetchApi /> } />
         <Route path='/axios' element={ <Axios /> } />
-        <Route path='/swr' element={ <SWR /> } />
+        <Route path='/swr' element={ <Suspense fallback={<h1>Loading data...</h1>}><SWR /></Suspense> } />
         <Route path='/react-query' element={ <ReactQuery /> } />
       </Routes>
     </BrowserRouter>
